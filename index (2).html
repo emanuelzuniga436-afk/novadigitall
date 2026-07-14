@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOVA DIGITAL - Agencia de Diseño y Automatización Digital</title>
+    <meta name="description" content="Nova Digital es una agencia de diseño y automatización digital que ofrece soluciones creativas para tu marca.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Garet:wght@400;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- Proyecto Bella Dona --- */
+        .bd-project {
+            padding: 100px 0;
+            background: #faf3ef;
+        }
+        .bd-project-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+        .bd-project-header h2 {
+            font-family: 'Garet', sans-serif;
+            font-size: 2.2rem;
+            letter-spacing: 1px;
+            color: #5c2a2a;
+            margin-bottom: 20px;
+        }
+        .bd-project-subtitle {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: #6b5b56;
+        }
+        .bd-project-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .bd-project-item {
+            background: #fff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(92, 42, 42, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .bd-project-item:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 14px 32px rgba(92, 42, 42, 0.15);
+        }
+        .bd-project-item img {
+            width: 100%;
+            height: 280px;
+            object-fit: contain;
+            background: #f2e4de;
+            display: block;
+        }
+        .bd-caption {
+            display: block;
+            text-align: center;
+            padding: 16px;
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            color: #5c2a2a;
+        }
+        @media (max-width: 640px) {
+            .bd-project-grid { grid-template-columns: 1fr; }
+            .bd-project { padding: 60px 0; }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVEGACIÓN -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <span class="logo-icon">★</span>
+                <div class="logo-text">
+                    <div class="logo-nova">NOVA</div>
+                    <div class="logo-digital">DIGITAL</div>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#nosotros">¿Quiénes Somos?</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#portfolio">Portafolio</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="inicio">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">NOVA DIGITAL</h1>
+                <p class="hero-subtitle">Diseño Creativo + Automatización Digital</p>
+                <p class="hero-description">Transformamos tus ideas en soluciones digitales innovadoras que conectan con tu audiencia</p>
+                <a href="#contacto" class="btn btn-primary">Comienza tu proyecto</a>
+            </div>
+            <div class="hero-background">
+                <div class="gradient-blob blob-1"></div>
+                <div class="gradient-blob blob-2"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NOSOTROS -->
+    <section class="nosotros" id="nosotros">
+        <div class="container">
+            <div class="section-header">
+                <h2>¿QUIÉNES SOMOS?</h2>
+                <div class="decorative-line"></div>
+            </div>
+
+            <div class="mission-vision">
+                <div class="card">
+                    <div class="card-icon">★</div>
+                    <h3>MISIÓN</h3>
+                    <p>Nova Digital existe para crear soluciones digitales que combinen diseño y automatización, permitiendo que las marcas comuniquen sus ideas de manera clara y eficiente.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">★</div>
+                    <h3>VISIÓN</h3>
+                    <p>Consolidarse como una agencia líder en diseño y automatización digital en Latinoamérica, transformando procesos digitales y siendo aliado estratégico para marcas innovadoras.</p>
+                </div>
+            </div>
+
+            <div class="about-content">
+                <h3 class="subtitle">Nuestro Público</h3>
+                <div class="public-list">
+                    <div class="public-item">
+                        <span class="bullet">●</span>
+                        <p>Emprendedores y pequeñas/medianas empresas</p>
+                    </div>
+                    <div class="public-item">
+                        <span class="bullet">●</span>
+                        <p>Marcas que desean mejorar su imagen digital</p>
+                    </div>
+                    <div class="public-item">
+                        <span class="bullet">●</span>
+                        <p>Negocios que buscan contenido creativo y automatización</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VALORES -->
+    <section class="valores" id="valores">
+        <div class="container">
+            <div class="section-header">
+                <h2>NUESTROS VALORES</h2>
+                <div class="decorative-line"></div>
+            </div>
+
+            <div class="valores-grid">
+                <div class="valor-card">
+                    <div class="valor-icon">🎨</div>
+                    <h3>CREATIVIDAD</h3>
+                    <p>Buscamos ideas originales y modernas para cada proyecto</p>
+                </div>
+                <div class="valor-card">
+                    <div class="valor-icon">⚡</div>
+                    <h3>INNOVACIÓN</h3>
+                    <p>Nos adaptamos constantemente a las nuevas tendencias digitales</p>
+                </div>
+                <div class="valor-card">
+                    <div class="valor-icon">🤝</div>
+                    <h3>COMPROMISO</h3>
+                    <p>Trabajamos de manera cercana con cada cliente</p>
+                </div>
+                <div class="valor-card">
+                    <div class="valor-icon">✓</div>
+                    <h3>RESPONSABILIDAD</h3>
+                    <p>Cumplimos con los compromisos y entregas acordadas</p>
+                </div>
+                <div class="valor-card">
+                    <div class="valor-icon">⭐</div>
+                    <h3>PROFESIONALISMO</h3>
+                    <p>Ofrecemos trabajos organizados, claros y de calidad</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section class="servicios" id="servicios">
+        <div class="container">
+            <div class="section-header">
+                <h2>NUESTROS SERVICIOS</h2>
+                <div class="decorative-line"></div>
+            </div>
+
+            <div class="servicios-grid">
+                <div class="servicio-card">
+                    <div class="servicio-number">01</div>
+                    <h3>Diseño Gráfico</h3>
+                    <p>Creamos identidades visuales poderosas que comunican la esencia de tu marca con creatividad e impacto.</p>
+                    <div class="features">
+                        <span class="feature-tag">Logo Design</span>
+                        <span class="feature-tag">Branding</span>
+                        <span class="feature-tag">Marketing Material</span>
+                    </div>
+                </div>
+
+                <div class="servicio-card">
+                    <div class="servicio-number">02</div>
+                    <h3>Diseño Web</h3>
+                    <p>Páginas web modernas, responsivas y optimizadas que generan conversiones y mejoran tu presencia digital.</p>
+                    <div class="features">
+                        <span class="feature-tag">UI/UX Design</span>
+                        <span class="feature-tag">Responsive</span>
+                        <span class="feature-tag">SEO Friendly</span>
+                    </div>
+                </div>
+
+                <div class="servicio-card">
+                    <div class="servicio-number">03</div>
+                    <h3>Contenido Digital</h3>
+                    <p>Estrategias de contenido creativo que conectan con tu audiencia y fortalecen tu marca en redes sociales.</p>
+                    <div class="features">
+                        <span class="feature-tag">Social Media</span>
+                        <span class="feature-tag">Copywriting</span>
+                        <span class="feature-tag">Visual Content</span>
+                    </div>
+                </div>
+
+                <div class="servicio-card">
+                    <div class="servicio-number">04</div>
+                    <h3>Automatización Digital</h3>
+                    <p>Soluciones automatizadas que optimizan tus procesos, ahorran tiempo y mejoran la experiencia del cliente.</p>
+                    <div class="features">
+                        <span class="feature-tag">Email Marketing</span>
+                        <span class="feature-tag">Marketing Automation</span>
+                        <span class="feature-tag">CRM Integration</span>
+                    </div>
+                </div>
+
+           
+    </section>
+
+    <!-- FORTALEZAS -->
+    <section class="fortalezas">
+        <div class="container">
+            <div class="section-header">
+                <h2>POR QUÉ ELEGIRNOS</h2>
+                <div class="decorative-line"></div>
+            </div>
+
+            <div class="fortalezas-content">
+                <div class="fortaleza-item">
+                    <div class="fortaleza-icon">✨</div>
+                    <h3>Creatividad Originales</h3>
+                    <p>Diseños únicos y modernos adaptados a tu identidad</p>
+                </div>
+                <div class="fortaleza-item">
+                    <div class="fortaleza-icon">👥</div>
+                    <h3>Atención Personalizada</h3>
+                    <p>Servicio cercano y dedicado a tus necesidades específicas</p>
+                </div>
+                <div class="fortaleza-item">
+                    <div class="fortaleza-icon">🚀</div>
+                    <h3>Herramientas Innovadoras</h3>
+                    <p>Utilizamos tecnología de punta para mejores resultados</p>
+                </div>
+                <div class="fortaleza-item">
+                    <div class="fortaleza-icon">⚙️</div>
+                    <h3>Automatización Inteligente</h3>
+                    <p>Procesos optimizados que generan eficiencia</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROCESO DE TRABAJO -->
+    <section class="proceso">
+        <div class="container">
+            <div class="section-header">
+                <h2>NUESTRO PROCESO</h2>
+                <div class="decorative-line"></div>
+            </div>
+
+            <div class="proceso-steps">
+                <div class="step">
+                    <div class="step-number">01</div>
+                    <h3>Descubrimiento</h3>
+                    <p>Entendemos tu visión, objetivos y público</p>
+                </div>
+                <div class="step-arrow">→</div>
+                <div class="step">
+                    <div class="step-number">02</div>
+                    <h3>Estrategia</h3>
+                    <p>Diseñamos la estrategia digital perfecta</p>
+                </div>
+                <div class="step-arrow">→</div>
+                <div class="step">
+                    <div class="step-number">03</div>
+                    <h3>Ejecución</h3>
+                    <p>Creamos soluciones de alta calidad</p>
+                </div>
+                <div class="step-arrow">→</div>
+                <div class="step">
+                    <div class="step-number">04</div>
+                    <h3>Optimización</h3>
+                    <p>Mejoramos continuamente los resultados</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section class="portfolio" id="portfolio">
+        <div class="container">
+            <div class="section-header">
+                <h2>NUESTRO PORTAFOLIO</h2>
+                <div class="decorative-line"></div>
+            </div>
+
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <div class="portfolio-image" style="background: linear-gradient(135deg, #102b53 0%, #7d9fc0 100%);"></div>
+                    <h3>Diseño de Identidad</h3>
+                    <p>Branding completo para startup tecnológica</p>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image" style="background: linear-gradient(135deg, #50698d 0%, #ceb5d4 100%);"></div>
+                    <h3>Sitio </h3>
+                    <p>Plataforma digital para tienda online</p>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image" style="background: linear-gradient(135deg, #7d9fc0 0%, #e2edf7 100%);"></div>
+                    <h3>Campaña Social Media</h3>
+                    <p>Estrategia de contenido para redes sociales</p>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image" style="background: linear-gradient(135deg, #ceb5d4 0%, #102b53 100%);"></div>
+                    <h3>Automatización Marketing</h3>
+                    <p>Sistema de email marketing automatizado</p>
+                </div>
+            </div>
+
+            <div class="portfolio-cta">
+                <p>¿Listo para transformar tu marca?</p>
+                <button class="btn btn-primary">Ver más proyectos</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROYECTO BELLA DONA -->
+    <section class="bd-project" id="proyecto-bella-dona">
+        <div class="container">
+            <div class="bd-project-header">
+                <h2>PROYECTO REALIZADO PARA BELLA DONA</h2>
+                <p class="bd-project-subtitle">En Nova Digital desarrollamos una identidad visual para BELLA DONA, fortaleciendo su imagen de marca mediante diseño gráfico.</p>
+            </div>
+            <div class="bd-project-grid">
+                <div class="bd-project-item">
+                    <img src="bella-dona-redes-sociales.jpg" alt="Diseño de redes sociales Bella Dona" loading="lazy">
+                    <span class="bd-caption">Redes Sociales</span>
+                </div>
+                <div class="bd-project-item">
+                    <img src="bella-dona-packaging.jpg" alt="Diseño de packaging Bella Dona" loading="lazy">
+                    <span class="bd-caption">Packaging</span>
+                </div>
+                <div class="bd-project-item">
+                    <img src="bella-dona-papeleria.jpg" alt="Papelería corporativa Bella Dona" loading="lazy">
+                    <span class="bd-caption">Papelería</span>
+                </div>
+                <div class="bd-project-item">
+                    <img src="bella-dona-logo.jpg" alt="Logo Bella Dona" loading="lazy">
+                    <span class="bd-caption">Logo</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIOS -->
+    <section class="testimonios">
+        <div class="container">
+            <div class="section-header">
+                <h2>LO QUE DICEN NUESTROS CLIENTES</h2>
+                <div class="decorative-line"></div>
+            </div>
+
+            <div class="testimonios-grid">
+                <div class="testimonio-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Nova Digital transformó completamente la presencia digital de nuestra marca. Su equipo es profesional, creativo y muy cercano."</p>
+                    <div class="cliente-info">
+                        <div class="cliente-avatar">JM</div>
+                        <div>
+                            <h4>Juan Martínez</h4>
+                            <span>CEO - Tech Startup</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonio-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Excelente trabajo en diseño y automatización. Realmente superaron nuestras expectativas y los resultados hablan por sí solos."</p>
+                    <div class="cliente-info">
+                        <div class="cliente-avatar">SR</div>
+                        <div>
+                            <h4>Sara Ramírez</h4>
+                            <span>Directora </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonio-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Su atención personalizada y dedicación en cada proyecto hace que Nova Digital sea diferente. Altamente recomendados."</p>
+                    <div class="cliente-info">
+                        <div class="cliente-avatar">PC</div>
+                        <div>
+                            <h4>Pedro Castillo</h4>
+                            <span>Emprendedor</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section class="contacto" id="contacto">
+        <div class="container">
+            <div class="section-header">
+                <h2>VAMOS A TRABAJAR JUNTOS</h2>
+                <div class="decorative-line"></div>
+            </div>
+
+            <div class="contacto-content">
+                <div class="contacto-info">
+                    <h3>Ponte en contacto con nosotros</h3>
+                    <p>Cuéntanos sobre tu proyecto y descubre cómo podemos ayudarte a alcanzar tus objetivos digitales.</p>
+
+                    <div class="info-items">
+                        <div class="info-item">
+                            <span class="icon">📧</span>
+                            <div>
+                                <h4>Email</h4>
+                                <p>info@novadigital.com</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <span class="icon">📱</span>
+                            <div>
+                                <h4>Teléfono</h4>
+                                <p>+57 (315) 537-4322</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <span class="icon">📍</span>
+                            <div>
+                                <h4>Ubicación</h4>
+                                <p>cali, Colombia</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="#" class="social-icon">f</a>
+                        <a href="#" class="social-icon">in</a>
+                        <a href="#" class="social-icon">ig</a>
+                        <a href="#" class="social-icon">tw</a>
+                    </div>
+                </div>
+
+                <form class="contacto-form" action="#" method="post">
+                    <div class="form-group">
+                        <input type="text" name="nombre" placeholder="Tu nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Tu email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="asunto" placeholder="Asunto">
+                    </div>
+                    <div class="form-group">
+                        <textarea name="mensaje" placeholder="Tu mensaje" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <span class="logo-icon">★</span>
+                        <div>
+                            <div class="logo-nova">NOVA</div>
+                            <div class="logo-digital">DIGITAL</div>
+                        </div>
+                    </div>
+                    <p>Transformando ideas en soluciones digitales innovadoras</p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Navegación</h4>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#nosotros">Nosotros</a></li>
+                        <li><a href="#servicios">Servicios</a></li>
+                        <li><a href="#portfolio">Portafolio</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Servicios</h4>
+                    <ul>
+                        <li><a href="#">Diseño Gráfico</a></li>
+                        <li><a href="#">Diseño Web</a></li>
+                        <li><a href="#">Automatización</a></li>
+                        <li><a href="#">Consultoría</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Conecta</h4>
+                    <ul>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">LinkedIn</a></li>
+                        <li><a href="#">Twitter</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 NOVA DIGITAL. Todos los derechos reservados.</p>
+                <div class="footer-links">
+                    <a href="#">Política de Privacidad</a>
+                    <a href="#">Términos de Servicio</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
