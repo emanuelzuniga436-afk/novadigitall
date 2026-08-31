@@ -69,9 +69,62 @@
             font-size: 0.85rem;
             color: #5c2a2a;
         }
+
+        /* Modal styles */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.6);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+        .modal-overlay.active { display: flex; }
+        .modal {
+            background: #fff;
+            width: min(920px, 94%);
+            max-height: 90vh;
+            overflow: auto;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            position: relative;
+        }
+        .modal .close-btn {
+            position: absolute;
+            right: 16px;
+            top: 12px;
+            background: transparent;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #333;
+        }
+        .modal-header {
+            text-align: center;
+            margin-bottom: 18px;
+        }
+        .modal-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+        .modal-grid img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            border-radius: 8px;
+            background: #f2e4de;
+            display: block;
+        }
+        .modal-caption { text-align: center; font-weight: 600; color: #5c2a2a; margin-top: 8px; }
+
         @media (max-width: 640px) {
             .bd-project-grid { grid-template-columns: 1fr; }
             .bd-project { padding: 60px 0; }
+            .modal-grid { grid-template-columns: 1fr; }
+            .modal { padding: 16px; }
         }
     </style>
 </head>
@@ -134,7 +187,7 @@
                 <div class="card">
                     <div class="card-icon">★</div>
                     <h3>VISIÓN</h3>
-                    <p>Consolidarse como una agencia líder en diseño y automatización digital en Latinoamérica, transformando procesos digitales y siendo aliado estratégico para marcas innovadoras.</p>
+                    <p>Consolidarse como una agencia líder en diseño y automatización digital en Latinoamérica, transformando procesos digitales y siendo aliado estratégico para marcas innovadora[...]
                 </div>
             </div>
 
@@ -354,12 +407,12 @@
 
             <div class="portfolio-cta">
                 <p>¿Listo para transformar tu marca?</p>
-                <button class="btn btn-primary">Ver más proyectos</button>
+                <button id="open-bd-modal" class="btn btn-primary" type="button">Ver más proyectos</button>
             </div>
         </div>
     </section>
 
-    <!-- PROYECTO BELLA DONA -->
+    <!-- PROYECTO BELLA DONA (se mantiene en página como referencia) -->
     <section class="bd-project" id="proyecto-bella-dona">
         <div class="container">
             <div class="bd-project-header">
@@ -386,6 +439,35 @@
             </div>
         </div>
     </section>
+
+    <!-- Modal (hidden by default) -->
+    <div id="bd-modal-overlay" class="modal-overlay" aria-hidden="true">
+        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="bd-modal-title">
+            <button class="close-btn" id="bd-modal-close" aria-label="Cerrar">×</button>
+            <div class="modal-header">
+                <h2 id="bd-modal-title">Proyecto: Bella Dona</h2>
+                <p class="bd-project-subtitle">Identidad visual, packaging y piezas para redes sociales.</p>
+            </div>
+            <div class="modal-grid">
+                <div>
+                    <img src="bella-dona-redes-sociales.jpg" alt="Redes Sociales - Bella Dona">
+                    <div class="modal-caption">Redes Sociales</div>
+                </div>
+                <div>
+                    <img src="bella-dona-packaging.jpg" alt="Packaging - Bella Dona">
+                    <div class="modal-caption">Packaging</div>
+                </div>
+                <div>
+                    <img src="bella-dona-papeleria.jpg" alt="Papelería - Bella Dona">
+                    <div class="modal-caption">Papelería</div>
+                </div>
+                <div>
+                    <img src="bella-dona-logo.jpg" alt="Logo - Bella Dona">
+                    <div class="modal-caption">Logo</div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- TESTIMONIOS -->
     <section class="testimonios">
@@ -555,6 +637,43 @@
         </div>
     </footer>
 
+    <script>
+        // Modal behavior for Bella Dona project
+        (function(){
+            const openBtn = document.getElementById('open-bd-modal');
+            const overlay = document.getElementById('bd-modal-overlay');
+            const closeBtn = document.getElementById('bd-modal-close');
+
+            function openModal(){
+                overlay.classList.add('active');
+                overlay.setAttribute('aria-hidden', 'false');
+                // trap focus - set focus to close button
+                closeBtn && closeBtn.focus();
+                document.body.style.overflow = 'hidden';
+            }
+            function closeModal(){
+                overlay.classList.remove('active');
+                overlay.setAttribute('aria-hidden', 'true');
+                document.body.style.overflow = '';
+                openBtn && openBtn.focus();
+            }
+
+            openBtn && openBtn.addEventListener('click', function(e){
+                e.preventDefault();
+                openModal();
+            });
+
+            closeBtn && closeBtn.addEventListener('click', function(){ closeModal(); });
+
+            overlay && overlay.addEventListener('click', function(e){
+                if(e.target === overlay) closeModal();
+            });
+
+            document.addEventListener('keydown', function(e){
+                if(e.key === 'Escape' && overlay.classList.contains('active')) closeModal();
+            });
+        })();
+    </script>
     <script src="script.js"></script>
 </body>
 </html>
