@@ -258,7 +258,7 @@
             </div>
 
             <div class="servicios-grid">
-                <div class="servicio-card">
+                <div class="servicio-card" id="servicio-diseno-grafico">
                     <div class="servicio-number">01</div>
                     <h3>Diseño Gráfico</h3>
                     <p>Creamos identidades visuales poderosas que comunican la esencia de tu marca con creatividad e impacto.</p>
@@ -280,7 +280,7 @@
                     </div>
                 </div>
 
-                <div class="servicio-card">
+                <div class="servicio-card" id="servicio-contenido-digital">
                     <div class="servicio-number">03</div>
                     <h3>Contenido Digital</h3>
                     <p>Estrategias de contenido creativo que conectan con tu audiencia y fortalecen tu marca en redes sociales.</p>
@@ -291,7 +291,7 @@
                     </div>
                 </div>
 
-                <div class="servicio-card">
+                <div class="servicio-card" id="servicio-automatizacion">
                     <div class="servicio-number">04</div>
                     <h3>Automatización Digital</h3>
                     <p>Soluciones automatizadas que optimizan tus procesos, ahorran tiempo y mejoran la experiencia del cliente.</p>
@@ -302,7 +302,36 @@
                     </div>
                 </div>
 
-                <!-- Modal para Diseño Web (LASH SHOP y BELLA DONA) -->
+                <!-- Modal para Diseño Gráfico -->
+                <div id="dg-modal-overlay" class="modal-overlay" aria-hidden="true">
+                    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="dg-modal-title">
+                        <button class="close-btn" id="dg-modal-close" aria-label="Cerrar">×</button>
+                        <div class="modal-header">
+                            <h2 id="dg-modal-title">Diseño Gráfico - Proyectos</h2>
+                            <p class="bd-project-subtitle">Ejemplos de nuestros trabajos en diseño gráfico.</p>
+                        </div>
+                        <div class="modal-grid">
+                            <div>
+                                <img src="lash-shop-portada.jpg" alt="LASH SHOP">
+                                <div class="modal-caption">LASH SHOP</div>
+                            </div>
+                            <div>
+                                <img src="bella-dona-logo.jpg" alt="Logo - Bella Dona">
+                                <div class="modal-caption">Bella Dona - Logo</div>
+                            </div>
+                            <div>
+                                <img src="bella-dona-packaging.jpg" alt="Packaging - Bella Dona">
+                                <div class="modal-caption">Bella Dona - Packaging</div>
+                            </div>
+                            <div>
+                                <img src="bella-dona-papeleria.jpg" alt="Papelería - Bella Dona">
+                                <div class="modal-caption">Bella Dona - Papelería</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal para Diseño Web -->
                 <div id="dw-modal-overlay" class="modal-overlay" aria-hidden="true">
                     <div class="modal" role="dialog" aria-modal="true" aria-labelledby="dw-modal-title">
                         <button class="close-btn" id="dw-modal-close" aria-label="Cerrar">×</button>
@@ -312,7 +341,7 @@
                         </div>
                         <div class="modal-grid">
                             <div>
-                                <img src="lashshopdiseñoweb.jpg" alt="LASH SHOP">
+                                <img src="lash-shop-portada.jpg" alt="LASH SHOP">
                                 <div class="modal-caption">LASH SHOP</div>
                             </div>
                             <div>
@@ -326,6 +355,64 @@
                             <div>
                                 <img src="bella-dona-papeleria.jpg" alt="Papelería - Bella Dona">
                                 <div class="modal-caption">Bella Dona - Papelería</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal para Contenido Digital -->
+                <div id="cd-modal-overlay" class="modal-overlay" aria-hidden="true">
+                    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="cd-modal-title">
+                        <button class="close-btn" id="cd-modal-close" aria-label="Cerrar">×</button>
+                        <div class="modal-header">
+                            <h2 id="cd-modal-title">Contenido Digital - Proyectos</h2>
+                            <p class="bd-project-subtitle">Ejemplos de nuestros trabajos en contenido digital.</p>
+                        </div>
+                        <div class="modal-grid">
+                            <div>
+                                <img src="bella-dona-redes-sociales.jpg" alt="Redes Sociales - Bella Dona">
+                                <div class="modal-caption">Bella Dona - Redes Sociales</div>
+                            </div>
+                            <div>
+                                <img src="lash-shop-portada.jpg" alt="LASH SHOP">
+                                <div class="modal-caption">LASH SHOP</div>
+                            </div>
+                            <div>
+                                <img src="bella-dona-packaging.jpg" alt="Packaging - Bella Dona">
+                                <div class="modal-caption">Bella Dona - Packaging</div>
+                            </div>
+                            <div>
+                                <img src="bella-dona-papeleria.jpg" alt="Papelería - Bella Dona">
+                                <div class="modal-caption">Bella Dona - Papelería</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal para Automatización Digital -->
+                <div id="ad-modal-overlay" class="modal-overlay" aria-hidden="true">
+                    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="ad-modal-title">
+                        <button class="close-btn" id="ad-modal-close" aria-label="Cerrar">×</button>
+                        <div class="modal-header">
+                            <h2 id="ad-modal-title">Automatización Digital - Proyectos</h2>
+                            <p class="bd-project-subtitle">Ejemplos de nuestros trabajos en automatización digital.</p>
+                        </div>
+                        <div class="modal-grid">
+                            <div>
+                                <img src="lash-shop-portada.jpg" alt="LASH SHOP">
+                                <div class="modal-caption">LASH SHOP</div>
+                            </div>
+                            <div>
+                                <img src="bella-dona-redes-sociales.jpg" alt="Redes Sociales - Bella Dona">
+                                <div class="modal-caption">Bella Dona - Redes Sociales</div>
+                            </div>
+                            <div>
+                                <img src="bella-dona-logo.jpg" alt="Logo - Bella Dona">
+                                <div class="modal-caption">Bella Dona - Logo</div>
+                            </div>
+                            <div>
+                                <img src="bella-dona-packaging.jpg" alt="Packaging - Bella Dona">
+                                <div class="modal-caption">Bella Dona - Packaging</div>
                             </div>
                         </div>
                     </div>
@@ -632,6 +719,146 @@
     </footer>
 
     <script>
+        // Modal for Diseño Gráfico
+        (function(){
+            const servicioDG = document.getElementById('servicio-diseno-grafico');
+            const dgOverlay = document.getElementById('dg-modal-overlay');
+            const dgCloseBtn = document.getElementById('dg-modal-close');
+
+            function openDGModal(){
+                dgOverlay.classList.add('active');
+                dgOverlay.setAttribute('aria-hidden', 'false');
+                dgCloseBtn && dgCloseBtn.focus();
+                document.body.style.overflow = 'hidden';
+            }
+            function closeDGModal(){
+                dgOverlay.classList.remove('active');
+                dgOverlay.setAttribute('aria-hidden', 'true');
+                document.body.style.overflow = '';
+                servicioDG && servicioDG.focus();
+            }
+
+            servicioDG && servicioDG.addEventListener('click', function(e){
+                e.preventDefault();
+                openDGModal();
+            });
+
+            dgCloseBtn && dgCloseBtn.addEventListener('click', function(){ closeDGModal(); });
+
+            dgOverlay && dgOverlay.addEventListener('click', function(e){
+                if(e.target === dgOverlay) closeDGModal();
+            });
+
+            document.addEventListener('keydown', function(e){
+                if(e.key === 'Escape' && dgOverlay.classList.contains('active')) closeDGModal();
+            });
+        })();
+
+        // Modal for Diseño Web
+        (function(){
+            const servicioDW = document.getElementById('servicio-diseno-web');
+            const dwOverlay = document.getElementById('dw-modal-overlay');
+            const dwCloseBtn = document.getElementById('dw-modal-close');
+
+            function openDWModal(){
+                dwOverlay.classList.add('active');
+                dwOverlay.setAttribute('aria-hidden', 'false');
+                dwCloseBtn && dwCloseBtn.focus();
+                document.body.style.overflow = 'hidden';
+            }
+            function closeDWModal(){
+                dwOverlay.classList.remove('active');
+                dwOverlay.setAttribute('aria-hidden', 'true');
+                document.body.style.overflow = '';
+                servicioDW && servicioDW.focus();
+            }
+
+            servicioDW && servicioDW.addEventListener('click', function(e){
+                e.preventDefault();
+                openDWModal();
+            });
+
+            dwCloseBtn && dwCloseBtn.addEventListener('click', function(){ closeDWModal(); });
+
+            dwOverlay && dwOverlay.addEventListener('click', function(e){
+                if(e.target === dwOverlay) closeDWModal();
+            });
+
+            document.addEventListener('keydown', function(e){
+                if(e.key === 'Escape' && dwOverlay.classList.contains('active')) closeDWModal();
+            });
+        })();
+
+        // Modal for Contenido Digital
+        (function(){
+            const servicioCD = document.getElementById('servicio-contenido-digital');
+            const cdOverlay = document.getElementById('cd-modal-overlay');
+            const cdCloseBtn = document.getElementById('cd-modal-close');
+
+            function openCDModal(){
+                cdOverlay.classList.add('active');
+                cdOverlay.setAttribute('aria-hidden', 'false');
+                cdCloseBtn && cdCloseBtn.focus();
+                document.body.style.overflow = 'hidden';
+            }
+            function closeCDModal(){
+                cdOverlay.classList.remove('active');
+                cdOverlay.setAttribute('aria-hidden', 'true');
+                document.body.style.overflow = '';
+                servicioCD && servicioCD.focus();
+            }
+
+            servicioCD && servicioCD.addEventListener('click', function(e){
+                e.preventDefault();
+                openCDModal();
+            });
+
+            cdCloseBtn && cdCloseBtn.addEventListener('click', function(){ closeCDModal(); });
+
+            cdOverlay && cdOverlay.addEventListener('click', function(e){
+                if(e.target === cdOverlay) closeCDModal();
+            });
+
+            document.addEventListener('keydown', function(e){
+                if(e.key === 'Escape' && cdOverlay.classList.contains('active')) closeCDModal();
+            });
+        })();
+
+        // Modal for Automatización Digital
+        (function(){
+            const servicioAD = document.getElementById('servicio-automatizacion');
+            const adOverlay = document.getElementById('ad-modal-overlay');
+            const adCloseBtn = document.getElementById('ad-modal-close');
+
+            function openADModal(){
+                adOverlay.classList.add('active');
+                adOverlay.setAttribute('aria-hidden', 'false');
+                adCloseBtn && adCloseBtn.focus();
+                document.body.style.overflow = 'hidden';
+            }
+            function closeADModal(){
+                adOverlay.classList.remove('active');
+                adOverlay.setAttribute('aria-hidden', 'true');
+                document.body.style.overflow = '';
+                servicioAD && servicioAD.focus();
+            }
+
+            servicioAD && servicioAD.addEventListener('click', function(e){
+                e.preventDefault();
+                openADModal();
+            });
+
+            adCloseBtn && adCloseBtn.addEventListener('click', function(){ closeADModal(); });
+
+            adOverlay && adOverlay.addEventListener('click', function(e){
+                if(e.target === adOverlay) closeADModal();
+            });
+
+            document.addEventListener('keydown', function(e){
+                if(e.key === 'Escape' && adOverlay.classList.contains('active')) closeADModal();
+            });
+        })();
+
         // Modal behavior for Bella Dona project (Portafolio)
         (function(){
             const openBtn = document.getElementById('open-bd-modal');
@@ -664,41 +891,6 @@
 
             document.addEventListener('keydown', function(e){
                 if(e.key === 'Escape' && overlay.classList.contains('active')) closeModal();
-            });
-        })();
-
-        // Modal behavior for Diseño Web (Servicios)
-        (function(){
-            const servicioDisenoWeb = document.getElementById('servicio-diseno-web');
-            const dwOverlay = document.getElementById('dw-modal-overlay');
-            const dwCloseBtn = document.getElementById('dw-modal-close');
-
-            function openDWModal(){
-                dwOverlay.classList.add('active');
-                dwOverlay.setAttribute('aria-hidden', 'false');
-                dwCloseBtn && dwCloseBtn.focus();
-                document.body.style.overflow = 'hidden';
-            }
-            function closeDWModal(){
-                dwOverlay.classList.remove('active');
-                dwOverlay.setAttribute('aria-hidden', 'true');
-                document.body.style.overflow = '';
-                servicioDisenoWeb && servicioDisenoWeb.focus();
-            }
-
-            servicioDisenoWeb && servicioDisenoWeb.addEventListener('click', function(e){
-                e.preventDefault();
-                openDWModal();
-            });
-
-            dwCloseBtn && dwCloseBtn.addEventListener('click', function(){ closeDWModal(); });
-
-            dwOverlay && dwOverlay.addEventListener('click', function(e){
-                if(e.target === dwOverlay) closeDWModal();
-            });
-
-            document.addEventListener('keydown', function(e){
-                if(e.key === 'Escape' && dwOverlay.classList.contains('active')) closeDWModal();
             });
         })();
     </script>
