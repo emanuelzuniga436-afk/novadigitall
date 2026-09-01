@@ -10,55 +10,112 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Garet:wght@400;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* --- Proyecto Bella Dona --- */
-        .bd-project {
+        /* --- Diseño Gráfico Section --- */
+        .diseno-grafico {
             padding: 100px 0;
-            background: #faf3ef;
+            background: linear-gradient(135deg, #faf3ef 0%, #f5e6d3 100%);
         }
-        .bd-project-header {
+        
+        .dg-header {
             text-align: center;
             max-width: 700px;
             margin: 0 auto 60px;
         }
-        .bd-project-header h2 {
+        
+        .dg-header h2 {
             font-family: 'Garet', sans-serif;
             font-size: 2.2rem;
             letter-spacing: 1px;
             color: #5c2a2a;
             margin-bottom: 20px;
         }
-        .bd-project-subtitle {
+        
+        .dg-subtitle {
             font-family: 'Open Sans', sans-serif;
             font-size: 1.05rem;
             line-height: 1.7;
             color: #6b5b56;
         }
-        .bd-project-grid {
+        
+        .dg-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        /* Portada - Primera imagen destacada */
+        .dg-portada {
+            background: #fff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 12px 36px rgba(92, 42, 42, 0.15);
+            margin-bottom: 60px;
+            transition: transform 0.3s ease;
+        }
+        
+        .dg-portada:hover {
+            transform: translateY(-8px);
+        }
+        
+        .dg-portada img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .dg-portada-caption {
+            padding: 24px;
+            text-align: center;
+            background: linear-gradient(135deg, #faf3ef 0%, #f2e4de 100%);
+            border-top: 2px solid #d4a5a5;
+        }
+        
+        .dg-portada-caption h3 {
+            font-family: 'Garet', sans-serif;
+            font-size: 1.5rem;
+            color: #5c2a2a;
+            margin: 0 0 8px 0;
+            font-weight: 700;
+        }
+        
+        .dg-portada-caption p {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 0.95rem;
+            color: #6b5b56;
+            margin: 0;
+            font-style: italic;
+        }
+        
+        /* Grid de proyectos adicionales */
+        .dg-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 30px;
-            max-width: 900px;
-            margin: 0 auto;
         }
-        .bd-project-item {
+        
+        .dg-item {
             background: #fff;
             border-radius: 16px;
             overflow: hidden;
             box-shadow: 0 8px 24px rgba(92, 42, 42, 0.08);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
         }
-        .bd-project-item:hover {
+        
+        .dg-item:hover {
             transform: translateY(-6px);
             box-shadow: 0 14px 32px rgba(92, 42, 42, 0.15);
         }
-        .bd-project-item img {
+        
+        .dg-item img {
             width: 100%;
             height: 280px;
-            object-fit: contain;
-            background: #f2e4de;
+            object-fit: cover;
             display: block;
+            background: #f2e4de;
         }
-        .bd-caption {
+        
+        .dg-caption {
             display: block;
             text-align: center;
             padding: 16px;
@@ -68,6 +125,7 @@
             text-transform: uppercase;
             font-size: 0.85rem;
             color: #5c2a2a;
+            background: linear-gradient(135deg, #faf3ef 0%, #f2e4de 100%);
         }
 
         /* Modal styles */
@@ -121,10 +179,12 @@
         .modal-caption { text-align: center; font-weight: 600; color: #5c2a2a; margin-top: 8px; }
 
         @media (max-width: 640px) {
-            .bd-project-grid { grid-template-columns: 1fr; }
-            .bd-project { padding: 60px 0; }
+            .dg-grid { grid-template-columns: 1fr; }
+            .diseno-grafico { padding: 60px 0; }
             .modal-grid { grid-template-columns: 1fr; }
             .modal { padding: 16px; }
+            .dg-portada img { height: 300px; }
+            .dg-header h2 { font-size: 1.8rem; }
         }
     </style>
 </head>
@@ -143,6 +203,7 @@
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#nosotros">¿Quiénes Somos?</a></li>
                 <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#diseno-grafico">Diseño Gráfico</a></li>
                 <li><a href="#portfolio">Portafolio</a></li>
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
@@ -187,7 +248,7 @@
                 <div class="card">
                     <div class="card-icon">★</div>
                     <h3>VISIÓN</h3>
-                    <p>Consolidarse como una agencia líder en diseño y automatización digital en Latinoamérica, transformando procesos digitales y siendo aliado estratégico para marcas innovadora[...]
+                    <p>Consolidarse como una agencia líder en diseño y automatización digital en Latinoamérica, transformando procesos digitales y siendo aliado estratégico para marcas innov[...]
                 </div>
             </div>
 
@@ -302,7 +363,46 @@
                     </div>
                 </div>
 
-           
+                
+        </section>
+
+    <!-- DISEÑO GRÁFICO SECTION -->
+    <section class="diseno-grafico" id="diseno-grafico">
+        <div class="dg-container">
+            <div class="dg-header">
+                <h2>DISEÑO GRÁFICO</h2>
+                <p class="dg-subtitle">Creamos identidades visuales que capturan la esencia de tu marca y generan impacto en tu audiencia</p>
+            </div>
+
+            <!-- Portada - LASH SHOP -->
+            <div class="dg-portada">
+                <img src="lash-shop-portada.jpg" alt="LASH SHOP - Portada Diseño Gráfico">
+                <div class="dg-portada-caption">
+                    <h3>LASH SHOP</h3>
+                    <p>Pestañas que realizan tu mirada</p>
+                </div>
+            </div>
+
+            <!-- Grid de proyectos adicionales - BELLA DONA -->
+            <div class="dg-grid">
+                <div class="dg-item" id="open-dg-modal">
+                    <img src="bella-dona-logo.jpg" alt="Logo - Bella Dona">
+                    <span class="dg-caption">Logo & Branding</span>
+                </div>
+                <div class="dg-item" id="open-dg-modal">
+                    <img src="bella-dona-packaging.jpg" alt="Packaging - Bella Dona">
+                    <span class="dg-caption">Packaging</span>
+                </div>
+                <div class="dg-item" id="open-dg-modal">
+                    <img src="bella-dona-papeleria.jpg" alt="Papelería - Bella Dona">
+                    <span class="dg-caption">Papelería</span>
+                </div>
+                <div class="dg-item" id="open-dg-modal">
+                    <img src="bella-dona-redes-sociales.jpg" alt="Redes Sociales - Bella Dona">
+                    <span class="dg-caption">Redes Sociales</span>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- FORTALEZAS -->
@@ -412,18 +512,18 @@
         </div>
     </section>
 
-    <!-- Modal (hidden by default) -->
+    <!-- Modal para Bella Dona -->
     <div id="bd-modal-overlay" class="modal-overlay" aria-hidden="true">
         <div class="modal" role="dialog" aria-modal="true" aria-labelledby="bd-modal-title">
             <button class="close-btn" id="bd-modal-close" aria-label="Cerrar">×</button>
             <div class="modal-header">
                 <h2 id="bd-modal-title">Proyecto: Bella Dona</h2>
-                <p class="bd-project-subtitle">Identidad visual, packaging y piezas para redes sociales.</p>
+                <p class="dg-subtitle">Identidad visual, packaging y piezas para redes sociales.</p>
             </div>
             <div class="modal-grid">
                 <div>
-                    <img src="bella-dona-redes-sociales.jpg" alt="Redes Sociales - Bella Dona">
-                    <div class="modal-caption">Redes Sociales</div>
+                    <img src="bella-dona-logo.jpg" alt="Logo - Bella Dona">
+                    <div class="modal-caption">Logo</div>
                 </div>
                 <div>
                     <img src="bella-dona-packaging.jpg" alt="Packaging - Bella Dona">
@@ -434,8 +534,8 @@
                     <div class="modal-caption">Papelería</div>
                 </div>
                 <div>
-                    <img src="bella-dona-logo.jpg" alt="Logo - Bella Dona">
-                    <div class="modal-caption">Logo</div>
+                    <img src="bella-dona-redes-sociales.jpg" alt="Redes Sociales - Bella Dona">
+                    <div class="modal-caption">Redes Sociales</div>
                 </div>
             </div>
         </div>
@@ -578,7 +678,7 @@
                 <div class="footer-section">
                     <h4>Servicios</h4>
                     <ul>
-                        <li><a href="#">Diseño Gráfico</a></li>
+                        <li><a href="#diseno-grafico">Diseño Gráfico</a></li>
                         <li><a href="#">Diseño Web</a></li>
                         <li><a href="#">Automatización</a></li>
                         <li><a href="#">Consultoría</a></li>
