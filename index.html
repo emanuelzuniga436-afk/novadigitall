@@ -40,6 +40,7 @@
         .dg-container {
             max-width: 1100px;
             margin: 0 auto;
+            padding: 0 20px;
         }
         
         /* Portada - Primera imagen destacada */
@@ -362,8 +363,7 @@
                         <span class="feature-tag">CRM Integration</span>
                     </div>
                 </div>
-
-                
+            </div>
         </section>
 
     <!-- DISEÑO GRÁFICO SECTION -->
@@ -490,7 +490,7 @@
                 </div>
                 <div class="portfolio-item">
                     <div class="portfolio-image" style="background: linear-gradient(135deg, #50698d 0%, #ceb5d4 100%);"></div>
-                    <h3>Sitio </h3>
+                    <h3>Sitio Web</h3>
                     <p>Plataforma digital para tienda online</p>
                 </div>
                 <div class="portfolio-item">
@@ -503,11 +503,6 @@
                     <h3>Automatización Marketing</h3>
                     <p>Sistema de email marketing automatizado</p>
                 </div>
-            </div>
-
-            <div class="portfolio-cta">
-                <p>¿Listo para transformar tu marca?</p>
-                <button id="open-bd-modal" class="btn btn-primary" type="button">Ver más proyectos</button>
             </div>
         </div>
     </section>
@@ -706,14 +701,13 @@
     <script>
         // Modal behavior for Bella Dona project
         (function(){
-            const openBtn = document.getElementById('open-bd-modal');
+            const openButtons = document.querySelectorAll('#open-dg-modal');
             const overlay = document.getElementById('bd-modal-overlay');
             const closeBtn = document.getElementById('bd-modal-close');
 
             function openModal(){
                 overlay.classList.add('active');
                 overlay.setAttribute('aria-hidden', 'false');
-                // trap focus - set focus to close button
                 closeBtn && closeBtn.focus();
                 document.body.style.overflow = 'hidden';
             }
@@ -721,12 +715,13 @@
                 overlay.classList.remove('active');
                 overlay.setAttribute('aria-hidden', 'true');
                 document.body.style.overflow = '';
-                openBtn && openBtn.focus();
             }
 
-            openBtn && openBtn.addEventListener('click', function(e){
-                e.preventDefault();
-                openModal();
+            openButtons.forEach(btn => {
+                btn.addEventListener('click', function(e){
+                    e.preventDefault();
+                    openModal();
+                });
             });
 
             closeBtn && closeBtn.addEventListener('click', function(){ closeModal(); });
