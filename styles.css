@@ -27,6 +27,46 @@ body {
         radial-gradient(circle at top right, rgba(206, 181, 212, 0.2), transparent 18%),
         #f7fbff;
     color: #243b5e;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Background Logo Nova - Fondo animado */
+body::before {
+    content: '★';
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 40vw;
+    opacity: 0.03;
+    z-index: -1;
+    pointer-events: none;
+    font-weight: 700;
+    animation: float 20s ease-in-out infinite;
+    color: var(--primary);
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: 
+        radial-gradient(circle at 25% 25%, rgba(16, 43, 83, 0.02) 0%, transparent 50%),
+        radial-gradient(circle at 75% 75%, rgba(125, 159, 192, 0.02) 0%, transparent 50%);
+    z-index: -1;
+    pointer-events: none;
+    animation: shimmer 15s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translate(-50%, -50%) scale(1) rotate(0deg); }
+    50% { transform: translate(-48%, -52%) scale(1.05) rotate(180deg); }
+}
+
+@keyframes shimmer {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
 }
 
 a {
@@ -53,6 +93,13 @@ textarea {
     background: linear-gradient(180deg, rgba(247, 251, 255, 0.92), rgba(247, 251, 255, 0.74));
     backdrop-filter: blur(18px);
     border-bottom: 1px solid transparent;
+    box-shadow: 0 4px 12px rgba(16, 43, 83, 0.08);
+    transition: all 0.3s ease;
+}
+
+.navbar.scrolled {
+    padding: 12px 0;
+    box-shadow: 0 8px 24px rgba(16, 43, 83, 0.15);
 }
 
 .navbar .container {
@@ -66,6 +113,11 @@ textarea {
     display: flex;
     align-items: center;
     gap: 14px;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05);
 }
 
 .logo-icon {
@@ -79,6 +131,12 @@ textarea {
     background: linear-gradient(135deg, #102b53, #7d9fc0);
     color: #ffffff;
     box-shadow: 0 18px 40px rgba(16, 43, 83, 0.26);
+    animation: pulse-glow 2s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 18px 40px rgba(16, 43, 83, 0.26); }
+    50% { box-shadow: 0 18px 50px rgba(125, 159, 192, 0.4); }
 }
 
 .logo-text {
@@ -117,6 +175,7 @@ textarea {
     padding: 4px 0;
     font-weight: 600;
     color: #35537e;
+    transition: color 0.3s ease;
 }
 
 .nav-links a::after {
@@ -137,11 +196,17 @@ textarea {
     transform: scaleX(1);
 }
 
+.nav-links a:hover,
+.nav-links a:focus-visible {
+    color: var(--primary);
+}
+
 .hamburger {
     display: none;
     flex-direction: column;
     gap: 6px;
     cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .hamburger span {
@@ -151,6 +216,18 @@ textarea {
     border-radius: 999px;
     background: #102b53;
     transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(10px, 10px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
 }
 
 .hero {
@@ -177,6 +254,18 @@ textarea {
     font-size: clamp(3.4rem, 9vw, 5.2rem);
     line-height: 0.98;
     letter-spacing: 0.04em;
+    animation: slideInLeft 0.8s ease-out;
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 .hero-subtitle {
@@ -184,6 +273,7 @@ textarea {
     font-size: clamp(1.5rem, 2.6vw, 2.2rem);
     font-weight: 700;
     color: #35537e;
+    animation: slideInLeft 0.8s ease-out 0.1s backwards;
 }
 
 .hero-description {
@@ -192,15 +282,18 @@ textarea {
     font-size: 1.1rem;
     line-height: 1.75;
     color: #5a6c88;
+    animation: slideInLeft 0.8s ease-out 0.2s backwards;
 }
 
 .hero .btn {
     margin-top: 30px;
+    animation: slideInLeft 0.8s ease-out 0.3s backwards;
 }
 
 .hero-background {
     position: relative;
     height: 420px;
+    animation: float 8s ease-in-out infinite;
 }
 
 .gradient-blob {
@@ -216,6 +309,7 @@ textarea {
     top: 20px;
     right: 30px;
     background: radial-gradient(circle at 35% 30%, #ffffff, #7d9fc0 60%, #102b53);
+    animation: blob-float-1 8s ease-in-out infinite;
 }
 
 .blob-2 {
@@ -224,10 +318,23 @@ textarea {
     bottom: 10px;
     left: 60px;
     background: radial-gradient(circle at 35% 30%, #ffffff, #ceb5d4 45%, #7d9fc0);
+    animation: blob-float-2 6s ease-in-out infinite;
+}
+
+@keyframes blob-float-1 {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(20px, -30px); }
+}
+
+@keyframes blob-float-2 {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(-30px, 20px); }
 }
 
 section {
     padding: 90px 0;
+    position: relative;
+    z-index: 1;
 }
 
 .section-header {
@@ -237,6 +344,18 @@ section {
     gap: 12px;
     margin-bottom: 56px;
     text-align: center;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .section-header h2 {
@@ -245,6 +364,10 @@ section {
     font-size: clamp(2.4rem, 5vw, 3.2rem);
     letter-spacing: 0.08em;
     text-transform: uppercase;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .decorative-line {
@@ -252,6 +375,18 @@ section {
     height: 4px;
     border-radius: 999px;
     background: linear-gradient(135deg, #102b53, #7d9fc0);
+    animation: expand 0.8s ease-out;
+}
+
+@keyframes expand {
+    from {
+        width: 0;
+        opacity: 0;
+    }
+    to {
+        width: 120px;
+        opacity: 1;
+    }
 }
 
 .mission-vision {
@@ -271,6 +406,20 @@ section {
     border: 1px solid var(--border);
     border-radius: var(--radius);
     box-shadow: 0 12px 40px rgba(16, 43, 83, 0.05);
+    transition: all 0.3s ease;
+}
+
+.card:hover,
+.valor-card:hover,
+.servicio-card:hover,
+.testimonio-card:hover,
+.portfolio-item:hover,
+.fortaleza-item:hover,
+.step:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 24px 60px rgba(16, 43, 83, 0.15);
+    border-color: rgba(125, 159, 192, 0.3);
+    background: rgba(255, 255, 255, 0.75);
 }
 
 .card {
@@ -289,6 +438,13 @@ section {
     border-radius: 18px;
     background: linear-gradient(135deg, rgba(16, 43, 83, 0.12), rgba(125, 159, 192, 0.2));
     font-size: 2.2rem;
+    transition: transform 0.3s ease;
+}
+
+.card:hover .card-icon,
+.valor-card:hover .valor-icon,
+.fortaleza-item:hover .fortaleza-icon {
+    transform: rotate(360deg) scale(1.1);
 }
 
 .card h3,
@@ -336,6 +492,11 @@ section {
     display: flex;
     align-items: center;
     gap: 14px;
+    transition: transform 0.3s ease;
+}
+
+.public-item:hover {
+    transform: translateX(10px);
 }
 
 .public-item p {
@@ -346,6 +507,11 @@ section {
     font-size: 2.1rem;
     line-height: 1;
     color: #7d9fc0;
+    transition: color 0.3s ease;
+}
+
+.public-item:hover .bullet {
+    color: var(--primary);
 }
 
 .valores {
@@ -374,6 +540,23 @@ section {
 
 .servicio-card {
     padding: 32px 28px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.servicio-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, transparent, rgba(125, 159, 192, 0.2));
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: -1;
+}
+
+.servicio-card:hover::before {
+    transform: translateX(0);
 }
 
 .servicio-number,
@@ -400,6 +583,12 @@ section {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.08em;
+    transition: all 0.3s ease;
+}
+
+.servicio-card:hover .feature-tag {
+    background: rgba(16, 43, 83, 0.12);
+    transform: scale(1.05);
 }
 
 .fortalezas-content {
@@ -432,6 +621,12 @@ section {
     font-size: 3rem;
     line-height: 1;
     color: #7d9fc0;
+    animation: arrow-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes arrow-pulse {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(8px); }
 }
 
 .portfolio-grid {
@@ -445,6 +640,11 @@ section {
 .portfolio-image {
     height: 220px;
     margin-bottom: 18px;
+    transition: transform 0.3s ease;
+}
+
+.portfolio-item:hover .portfolio-image {
+    transform: scale(1.05);
 }
 
 .portfolio-cta {
@@ -469,11 +669,25 @@ section {
     padding: 28px;
 }
 
+.testimonio-card::before {
+    content: '"';
+    font-size: 6rem;
+    color: rgba(125, 159, 192, 0.2);
+    position: absolute;
+    top: -20px;
+    left: 10px;
+}
+
 .stars {
     margin-bottom: 16px;
     font-size: 1.5rem;
     letter-spacing: 0.2em;
     color: #f4b400;
+    transition: transform 0.3s ease;
+}
+
+.testimonio-card:hover .stars {
+    transform: scale(1.1);
 }
 
 .cliente-info {
@@ -493,6 +707,11 @@ section {
     font-weight: 700;
     background: linear-gradient(135deg, #102b53, #7d9fc0);
     color: #fff;
+    transition: transform 0.3s ease;
+}
+
+.cliente-info:hover .cliente-avatar {
+    transform: scale(1.1) rotate(10deg);
 }
 
 .cliente-info h4 {
@@ -524,6 +743,11 @@ section {
     display: flex;
     align-items: flex-start;
     gap: 14px;
+    transition: transform 0.3s ease;
+}
+
+.info-item:hover {
+    transform: translateX(10px);
 }
 
 .info-item .icon {
@@ -535,6 +759,12 @@ section {
     font-size: 1.5rem;
     border-radius: 16px;
     background: linear-gradient(135deg, rgba(16, 43, 83, 0.12), rgba(125, 159, 192, 0.2));
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+}
+
+.info-item:hover .icon {
+    transform: rotate(-10deg) scale(1.1);
 }
 
 .info-item h4 {
@@ -562,6 +792,14 @@ section {
     border-radius: 14px;
     font-weight: 700;
     box-shadow: 0 8px 24px rgba(16, 43, 83, 0.08);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.social-icon:hover {
+    transform: translateY(-4px) rotate(10deg);
+    box-shadow: 0 12px 32px rgba(16, 43, 83, 0.15);
+    border-color: var(--secondary);
 }
 
 .contacto-form {
@@ -584,6 +822,7 @@ section {
     border-radius: 16px;
     background: #fff;
     outline: none;
+    transition: all 0.3s ease;
 }
 
 .contacto-form textarea {
@@ -595,6 +834,7 @@ section {
 .contacto-form textarea:focus {
     border-color: #7d9fc0;
     box-shadow: 0 0 0 4px rgba(125, 159, 192, 0.16);
+    transform: translateY(-2px);
 }
 
 .btn {
@@ -609,18 +849,37 @@ section {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, transparent, rgba(255, 255, 255, 0.3));
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
+
+.btn:hover::before {
+    transform: translateX(100%);
 }
 
 .btn:hover,
 .btn:focus-visible {
-    transform: translateY(-2px);
+    transform: translateY(-3px);
 }
 
 .btn-primary {
     background: linear-gradient(135deg, #102b53, #7d9fc0);
     color: #fff;
     box-shadow: 0 16px 32px rgba(16, 43, 83, 0.25);
+}
+
+.btn-primary:hover {
+    box-shadow: 0 20px 40px rgba(16, 43, 83, 0.35);
 }
 
 .footer {
@@ -660,6 +919,15 @@ section {
 
 .footer-section li + li {
     margin-top: 12px;
+}
+
+.footer-section a {
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-section a:hover {
+    color: var(--primary);
+    transform: translateX(4px);
 }
 
 .footer-bottom {
