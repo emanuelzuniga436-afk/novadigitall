@@ -25,8 +25,13 @@
   --maxw:1180px;
 }
 *{box-sizing:border-box;}
-html{background:#ffffff;}
+html{background:#ffffff;scroll-behavior:smooth;}
 body{margin:0;font-family:'Open Sans',sans-serif;color:var(--ink);background:transparent;line-height:1.6;}
+/* Cada sección se detiene justo debajo del menú fijo al hacer scroll desde un enlace */
+section[id]{scroll-margin-top:76px;}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto;}
+}
 h1,h2,h3,h4{font-family:'Garet',sans-serif;color:var(--navy);margin:0;}
 p{margin:0;}
 a{color:inherit;}
@@ -274,6 +279,35 @@ section{padding:96px 0;}
   transition:left .6s ease;
 }
 .btn-primary:hover::after{left:130%;}
+
+/* Botón flotante: vuelve al Inicio con desplazamiento suave */
+.back-to-top{
+  position:fixed;
+  right:24px;
+  bottom:24px;
+  width:52px;
+  height:52px;
+  border-radius:50%;
+  border:none;
+  background:var(--navy);
+  color:#fff;
+  font-size:1.25rem;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  box-shadow:0 12px 28px rgba(16,40,77,.28);
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(14px);
+  transition:opacity .35s ease, transform .35s ease, visibility .35s, box-shadow .2s ease;
+  z-index:600;
+}
+.back-to-top.is-visible{opacity:1;visibility:visible;transform:translateY(0);}
+.back-to-top:hover{box-shadow:0 16px 34px rgba(16,40,77,.36);transform:translateY(-3px);}
+@media (max-width:600px){
+  .back-to-top{right:16px;bottom:16px;width:46px;height:46px;font-size:1.1rem;}
+}
 </style>
 </head>
 <body>
@@ -656,6 +690,9 @@ section{padding:96px 0;}
   </div>
 </footer>
 
+<!-- Botón flotante: volver a Inicio -->
+<button id="backToTop" class="back-to-top" aria-label="Volver al inicio" title="Volver al inicio">★</button>
+
 <script>
 // Fondo dinámico animado: genera el campo de estrellas ★ (logo Nova)
 (function(){
@@ -698,6 +735,21 @@ section{padding:96px 0;}
     });
   }, {threshold:.15, rootMargin:'0px 0px -60px 0px'});
   items.forEach(el => observer.observe(el));
+})();
+
+// Botón flotante "volver al inicio": aparece al bajar y regresa con scroll suave
+(function(){
+  const btn = document.getElementById('backToTop');
+  const inicio = document.getElementById('inicio');
+  if(!btn || !inicio) return;
+  function onScroll(){
+    btn.classList.toggle('is-visible', window.scrollY > window.innerHeight * 0.6);
+  }
+  document.addEventListener('scroll', onScroll);
+  onScroll();
+  btn.addEventListener('click', function(){
+    inicio.scrollIntoView({behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block:'start'});
+  });
 })();
 
 // Menú móvil
