@@ -126,6 +126,82 @@
             .modal-grid { grid-template-columns: 1fr; }
             .modal { padding: 16px; }
         }
+
+        /* --- Navegación por anclas + menú móvil --- */
+        html {
+            scroll-behavior: smooth;
+        }
+        section[id], .hero[id] {
+            scroll-margin-top: 90px; /* Ajusta este valor a la altura real de tu .navbar en styles.css */
+        }
+        .nav-links a.active-link {
+            font-weight: 700;
+        }
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: #fff;
+                padding: 16px;
+                box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+            }
+            .nav-links.nav-open {
+                display: flex;
+            }
+            .hamburger {
+                cursor: pointer;
+            }
+            .hamburger.hamburger-open span:nth-child(1) {
+                transform: translateY(7px) rotate(45deg);
+            }
+            .hamburger.hamburger-open span:nth-child(2) {
+                opacity: 0;
+            }
+            .hamburger.hamburger-open span:nth-child(3) {
+                transform: translateY(-7px) rotate(-45deg);
+            }
+        }
+
+        /* --- Redes sociales --- */
+        .social-links, .footer-socials {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #f2e4de;
+            color: #5c2a2a;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+        .social-icon:hover {
+            transform: translateY(-3px);
+            background: #e2c9c0;
+        }
+
+        /* --- Confirmación del formulario de contacto --- */
+        .form-feedback {
+            margin-top: 14px;
+            padding: 12px 16px;
+            border-radius: 8px;
+            background: #eaf6ec;
+            color: #256029;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 0.95rem;
+            display: none;
+        }
+        .form-feedback.show { display: block; }
     </style>
 </head>
 <body>
@@ -139,14 +215,14 @@
                     <div class="logo-digital">DIGITAL</div>
                 </div>
             </div>
-            <ul class="nav-links">
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#nosotros">¿Quiénes Somos?</a></li>
-                <li><a href="#servicios">Servicios</a></li>
-                <li><a href="#portfolio">Portafolio</a></li>
-                <li><a href="#contacto">Contacto</a></li>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#inicio" class="nav-link">Inicio</a></li>
+                <li><a href="#nosotros" class="nav-link">¿Quiénes Somos?</a></li>
+                <li><a href="#servicios" class="nav-link">Servicios</a></li>
+                <li><a href="#portfolio" class="nav-link">Portafolio</a></li>
+                <li><a href="#contacto" class="nav-link">Contacto</a></li>
             </ul>
-            <div class="hamburger">
+            <div class="hamburger" id="hamburger" role="button" tabindex="0" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -187,7 +263,7 @@
                 <div class="card">
                     <div class="card-icon">★</div>
                     <h3>VISIÓN</h3>
-                    <p>Consolidarse como una agencia líder en diseño y automatización digital en Latinoamérica, transformando procesos digitales y siendo aliado estratégico para marcas innov[...]
+                    <p>Consolidarse como una agencia líder en diseño y automatización digital en Latinoamérica, transformando procesos digitales y siendo aliado estratégico para marcas innovadoras.</p>
                 </div>
             </div>
 
@@ -318,7 +394,6 @@
                             <div>
                                 <img src="belladiseñografico.jpg" alt=" Bella Dona">
                                 <div class="modal-caption">Bella Dona</div>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -340,8 +415,6 @@
                             <div>
                                 <img src="belladiseñografico2.jpg" alt="Redes Sociales - Bella Dona">
                                 <div class="modal-caption">Bella Dona - Redes Sociales</div>
-                               
-                            </div>
                             </div>
                         </div>
                     </div>
@@ -363,7 +436,6 @@
                             <div>
                                 <img src="lashcontenidodigital.jpg" alt="LASH SHOP">
                                 <div class="modal-caption">LASH SHOP</div>
-                               </div>
                             </div>
                         </div>
                     </div>
@@ -389,13 +461,13 @@
                             <div>
                                 <img src="bellaautomatizacion3.jpg" alt="Logo - Bella Dona">
                                 <div class="modal-caption">Bella Dona</div>
-                               </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
     <!-- FORTALEZAS -->
     <section class="fortalezas">
@@ -599,7 +671,7 @@
                             <span class="icon">📧</span>
                             <div>
                                 <h4>Email</h4>
-                                <p>info@novadigital.com</p>
+                                <p>novadigital040@gmail.com</p>
                             </div>
                         </div>
                         <div class="info-item">
@@ -619,11 +691,14 @@
                     </div>
 
                     <div class="social-links">
-                        <a href="#" class="social-icon">ig</a>
+                        <a href="https://www.instagram.com/novadigital133" class="social-icon" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
+                        <a href="https://www.facebook.com/share/1CDBP7j8o6/" class="social-icon" target="_blank" rel="noopener" aria-label="Facebook">FB</a>
+                        <a href="https://www.tiktok.com/@nova.digital902" class="social-icon" target="_blank" rel="noopener" aria-label="TikTok">TT</a>
+                        <a href="mailto:novadigital040@gmail.com" class="social-icon" aria-label="Correo electrónico">✉</a>
                     </div>
                 </div>
 
-                <form class="contacto-form" action="#" method="post">
+                <form class="contacto-form" id="contacto-form" action="#" method="post">
                     <div class="form-group">
                         <input type="text" name="nombre" placeholder="Tu nombre" required>
                     </div>
@@ -637,6 +712,7 @@
                         <textarea name="mensaje" placeholder="Tu mensaje" rows="5" required></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+                    <p class="form-feedback" id="form-feedback">¡Gracias! Tu mensaje fue recibido, te contactaremos pronto.</p>
                 </form>
             </div>
         </div>
@@ -670,18 +746,21 @@
                 <div class="footer-section">
                     <h4>Servicios</h4>
                     <ul>
-                        <li><a href="#">Diseño Gráfico</a></li>
-                        <li><a href="#">Diseño Web</a></li>
-                        <li><a href="#">Automatización</a></li>
-                        <li><a href="#">Consultoría</a></li>
+                        <li><a href="#servicios">Diseño Gráfico</a></li>
+                        <li><a href="#servicios">Diseño Web</a></li>
+                        <li><a href="#servicios">Automatización</a></li>
+                        <li><a href="#contacto">Consultoría</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-section">
                     <h4>Conecta</h4>
-                    <ul>
-                        <li><a href="#">Instagram</a></li>
-                    </ul>
+                    <div class="footer-socials">
+                        <a href="https://www.instagram.com/novadigital133" class="social-icon" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
+                        <a href="https://www.facebook.com/share/1CDBP7j8o6/" class="social-icon" target="_blank" rel="noopener" aria-label="Facebook">FB</a>
+                        <a href="https://www.tiktok.com/@nova.digital902" class="social-icon" target="_blank" rel="noopener" aria-label="TikTok">TT</a>
+                        <a href="mailto:novadigital040@gmail.com" class="social-icon" aria-label="Correo electrónico">✉</a>
+                    </div>
                 </div>
             </div>
 
@@ -696,6 +775,36 @@
     </footer>
 
     <script>
+        // Menú hamburguesa (móvil) + resalta el link activo al hacer scroll
+        (function(){
+            const hamburger = document.getElementById('hamburger');
+            const navLinks = document.getElementById('nav-links');
+
+            function toggleMenu(){
+                const isOpen = navLinks.classList.toggle('nav-open');
+                hamburger.classList.toggle('hamburger-open', isOpen);
+                hamburger.setAttribute('aria-expanded', String(isOpen));
+            }
+            function closeMenu(){
+                navLinks.classList.remove('nav-open');
+                hamburger.classList.remove('hamburger-open');
+                hamburger.setAttribute('aria-expanded', 'false');
+            }
+
+            hamburger && hamburger.addEventListener('click', toggleMenu);
+            hamburger && hamburger.addEventListener('keydown', function(e){
+                if(e.key === 'Enter' || e.key === ' '){
+                    e.preventDefault();
+                    toggleMenu();
+                }
+            });
+
+            // Cierra el menú móvil al elegir una pestaña
+            document.querySelectorAll('.nav-link').forEach(function(link){
+                link.addEventListener('click', closeMenu);
+            });
+        })();
+
         // Modal for Diseño Gráfico
         (function(){
             const servicioDG = document.getElementById('servicio-diseno-grafico');
@@ -868,6 +977,19 @@
 
             document.addEventListener('keydown', function(e){
                 if(e.key === 'Escape' && overlay.classList.contains('active')) closeModal();
+            });
+        })();
+
+        // Formulario de contacto: como no hay backend conectado, mostramos confirmación en pantalla
+        (function(){
+            const form = document.getElementById('contacto-form');
+            const feedback = document.getElementById('form-feedback');
+
+            form && form.addEventListener('submit', function(e){
+                e.preventDefault();
+                feedback.classList.add('show');
+                form.reset();
+                setTimeout(function(){ feedback.classList.remove('show'); }, 6000);
             });
         })();
     </script>
