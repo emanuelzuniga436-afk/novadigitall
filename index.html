@@ -25,7 +25,8 @@
   --maxw:1180px;
 }
 *{box-sizing:border-box;}
-body{margin:0;font-family:'Open Sans',sans-serif;color:var(--ink);background:var(--white);line-height:1.6;}
+html{background:#ffffff;}
+body{margin:0;font-family:'Open Sans',sans-serif;color:var(--ink);background:transparent;line-height:1.6;}
 h1,h2,h3,h4{font-family:'Garet',sans-serif;color:var(--navy);margin:0;}
 p{margin:0;}
 a{color:inherit;}
@@ -117,7 +118,9 @@ section{padding:96px 0;}
 .servicios-tabs button.active{background:#fff;color:var(--navy);box-shadow:inset 4px 0 0 var(--navy);}
 .servicio-panel{display:none;padding:44px 40px;grid-template-columns:1fr 1fr;gap:36px;align-items:center;}
 .servicio-panel.active{display:grid;}
-.servicio-visual{background:var(--bg-soft);border-radius:var(--radius);height:220px;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--muted);font-size:.85rem;padding:14px;}
+.servicio-visual{background:var(--bg-soft);border-radius:var(--radius);height:220px;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--muted);font-size:.85rem;padding:14px;overflow:hidden;position:relative;}
+.servicio-visual img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease;}
+.servicio-panel:hover .servicio-visual img{transform:scale(1.05);}
 .servicio-icon{width:46px;height:46px;border-radius:12px;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.2rem;margin-bottom:16px;}
 .servicio-panel h3{font-size:1.5rem;margin-bottom:12px;}
 .servicio-panel p{color:var(--muted);margin-bottom:20px;}
@@ -129,12 +132,14 @@ section{padding:96px 0;}
 /* PORTAFOLIO */
 .portafolio{background:var(--bg-soft);}
 .filter-bar{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:40px;}
-.filter-btn{padding:9px 18px;border-radius:999px;border:1px solid var(--line);background:#fff;font-family:'Open Sans',sans-serif;font-weight:600;font-size:.85rem;cursor:pointer;color:var(--ink);}
+.filter-btn{padding:9px 18px;border-radius:999px;border:1px solid var(--line);background:#fff;font-family:'Open Sans',sans-serif;font-weight:600;font-size:.85rem;cursor:pointer;color:var(--ink);transition:transform .15s ease;}
 .filter-btn.active{background:var(--navy);color:#fff;border-color:var(--navy);}
+.filter-btn:hover{transform:translateY(-1px);}
 .portafolio-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px;}
-.p-card{background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:0 6px 18px rgba(16,40,77,.06);cursor:pointer;transition:transform .2s ease;}
-.p-card:hover{transform:translateY(-4px);}
-.p-card img,.p-card .ph{width:100%;height:200px;object-fit:cover;background:linear-gradient(135deg,var(--sky),var(--lav));}
+.p-card{background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:0 6px 18px rgba(16,40,77,.06);cursor:pointer;transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s ease;}
+.p-card:hover{transform:translateY(-6px);box-shadow:0 22px 40px rgba(16,40,77,.16);}
+.p-card img,.p-card .ph{width:100%;height:200px;object-fit:cover;background:linear-gradient(135deg,var(--sky),var(--lav));transition:transform .5s ease;}
+.p-card:hover img{transform:scale(1.06);}
 .p-card .ph{display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;text-align:center;padding:10px;}
 .p-card .p-caption{padding:16px 18px;}
 .p-card .p-caption h4{font-size:.98rem;margin-bottom:4px;}
@@ -155,7 +160,8 @@ section{padding:96px 0;}
 .contacto-layout{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;}
 .form-group{margin-bottom:16px;}
 .form-group label{display:block;font-size:.85rem;font-weight:600;margin-bottom:6px;color:var(--ink);}
-.form-group input,.form-group select,.form-group textarea{width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:10px;font-family:'Open Sans',sans-serif;font-size:.95rem;background:#fff;}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:10px;font-family:'Open Sans',sans-serif;font-size:.95rem;background:#fff;transition:border-color .2s ease,box-shadow .2s ease;}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:var(--sky);box-shadow:0 0 0 4px rgba(125,159,192,.18);}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
 .form-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px;}
 .form-feedback{margin-top:14px;padding:12px 16px;border-radius:8px;background:#eaf6ec;color:#256029;font-size:.92rem;display:none;}
@@ -180,8 +186,8 @@ section{padding:96px 0;}
 .footer a{color:#aeb9cc;text-decoration:none;font-size:.9rem;}
 .footer a:hover{color:#fff;}
 .footer-socials{display:flex;gap:10px;}
-.footer .social-icon{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;font-size:.95rem;}
-.footer .social-icon:hover{background:var(--sky);}
+.footer .social-icon{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;font-size:.95rem;transition:background .2s ease,transform .2s ease;}
+.footer .social-icon:hover{background:var(--sky);transform:translateY(-2px);}
 .footer-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;padding-top:22px;font-size:.82rem;color:#8ea0bc;}
 .footer-bottom a{color:#8ea0bc;margin-left:16px;text-decoration:none;}
 @media (max-width:800px){.footer-top{grid-template-columns:1fr;}}
@@ -197,9 +203,83 @@ section{padding:96px 0;}
 .modal-grid img{width:100%;height:260px;object-fit:cover;border-radius:10px;background:var(--bg-soft);}
 .modal-caption{text-align:center;font-weight:700;color:var(--navy);margin-top:8px;font-size:.85rem;}
 @media (max-width:640px){.modal-grid{grid-template-columns:1fr;}.conocenos-grid,.contacto-layout,.form-row{grid-template-columns:1fr;}}
+
+/* ===================================================================
+   FONDO DINÁMICO ANIMADO — Logo Nova ★
+   Capa fija de estrellas + aurora sutil que actúa como fondo vivo
+   de toda la página, detrás del contenido y de las secciones con
+   color propio.
+=================================================================== */
+.star-field{
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  pointer-events:none;
+  overflow:hidden;
+  background:
+    radial-gradient(60% 50% at 15% 10%, rgba(206,181,212,.20), transparent 65%),
+    radial-gradient(55% 45% at 90% 25%, rgba(125,159,192,.20), transparent 60%),
+    radial-gradient(50% 50% at 50% 100%, rgba(160,158,197,.14), transparent 65%),
+    #ffffff;
+  background-size:180% 180%, 180% 180%, 160% 160%, auto;
+  animation:auroraDrift 22s ease-in-out infinite;
+}
+@keyframes auroraDrift{
+  0%{background-position:0% 0%, 100% 0%, 50% 100%;}
+  50%{background-position:20% 30%, 70% 30%, 60% 80%;}
+  100%{background-position:0% 0%, 100% 0%, 50% 100%;}
+}
+.star-field .star{
+  position:absolute;
+  color:var(--star-1);
+  line-height:1;
+  opacity:0;
+  will-change:transform, opacity;
+  animation-name:starTwinkle, starDrift;
+  animation-timing-function:ease-in-out, linear;
+  animation-iteration-count:infinite, infinite;
+}
+.star-field .star:nth-child(3n){color:var(--star-2);}
+.star-field .star:nth-child(5n){color:var(--lav);}
+@keyframes starTwinkle{
+  0%,100%{opacity:0;}
+  50%{opacity:var(--star-peak, .6);}
+}
+@keyframes starDrift{
+  0%{transform:translateY(0) rotate(0deg);}
+  100%{transform:translateY(-26px) rotate(20deg);}
+}
+@media (prefers-reduced-motion: reduce){
+  .star-field{animation:none;}
+  .star-field .star{animation:none;opacity:.22;}
+}
+
+/* Revelado suave al hacer scroll — un único patrón de animación
+   aplicado de forma consistente en toda la página */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1);}
+.reveal.is-visible{opacity:1;transform:translateY(0);}
+@media (prefers-reduced-motion: reduce){
+  .reveal{opacity:1;transform:none;transition:none;}
+}
+
+/* Brillo premium al pasar el cursor sobre el botón principal */
+.btn-primary{position:relative;overflow:hidden;}
+.btn-primary::after{
+  content:"";
+  position:absolute;
+  top:0;left:-60%;
+  width:40%;height:100%;
+  background:linear-gradient(115deg,transparent,rgba(255,255,255,.35),transparent);
+  transform:skewX(-20deg);
+  transition:left .6s ease;
+}
+.btn-primary:hover::after{left:130%;}
 </style>
 </head>
 <body>
+
+<!-- FONDO DINÁMICO ANIMADO: estrellas ★ del logo Nova, decorativo -->
+<div class="star-field" id="starField" aria-hidden="true"></div>
 
 <!-- NAVBAR -->
 <nav class="navbar">
@@ -252,19 +332,19 @@ section{padding:96px 0;}
 <!-- CONOCENOS -->
 <section id="conocenos">
   <div class="container">
-    <div class="section-header">
+    <div class="section-header reveal">
       <span class="eyebrow">CONÓCENOS</span>
       <h2>Una empresa creativa y tecnológica.</h2>
       <p class="sub">Nova Digital es una empresa creativa y tecnológica que desarrolla soluciones digitales para marcas y emprendimientos. Combinamos diseño, estrategia y automatización para crear experiencias que conecten con las personas y ayuden a nuestros clientes a alcanzar sus objetivos.</p>
     </div>
 
     <div class="conocenos-grid">
-      <div class="mv-card">
+      <div class="mv-card reveal">
         <div class="mv-icon">★</div>
         <h3>MISIÓN</h3>
         <p>Crear soluciones digitales innovadoras que combinen creatividad, diseño y tecnología, ayudando a nuestros clientes a fortalecer su presencia digital, conectar con sus públicos y alcanzar sus objetivos de manera estratégica y eficiente.</p>
       </div>
-      <div class="mv-card">
+      <div class="mv-card reveal">
         <div class="mv-icon">✦</div>
         <h3>VISIÓN</h3>
         <p>Ser una empresa reconocida por transformar ideas en soluciones digitales de alto impacto, destacándonos por nuestra creatividad, motivación, calidad y capacidad de adaptación a las nuevas tendencias tecnológicas.</p>
@@ -285,16 +365,16 @@ section{padding:96px 0;}
 <!-- VALORES -->
 <section class="valores">
   <div class="container">
-    <div class="section-header center">
+    <div class="section-header center reveal">
       <span class="eyebrow">NUESTROS VALORES</span>
       <h2>Lo que nos define</h2>
     </div>
     <div class="valores-grid">
-      <div class="valor-card"><div class="valor-icon">🎨</div><h3>CREATIVIDAD</h3><p>Buscamos ideas originales y modernas para cada proyecto</p></div>
-      <div class="valor-card"><div class="valor-icon">⚡</div><h3>INNOVACIÓN</h3><p>Nos adaptamos constantemente a las nuevas tendencias digitales</p></div>
-      <div class="valor-card"><div class="valor-icon">🤝</div><h3>COMPROMISO</h3><p>Trabajamos de manera cercana con cada cliente</p></div>
-      <div class="valor-card"><div class="valor-icon">✓</div><h3>RESPONSABILIDAD</h3><p>Cumplimos con los compromisos y entregas acordadas</p></div>
-      <div class="valor-card"><div class="valor-icon">⭐</div><h3>PROFESIONALISMO</h3><p>Ofrecemos trabajos organizados, claros y de calidad</p></div>
+      <div class="valor-card reveal"><div class="valor-icon">🎨</div><h3>CREATIVIDAD</h3><p>Buscamos ideas originales y modernas para cada proyecto</p></div>
+      <div class="valor-card reveal"><div class="valor-icon">⚡</div><h3>INNOVACIÓN</h3><p>Nos adaptamos constantemente a las nuevas tendencias digitales</p></div>
+      <div class="valor-card reveal"><div class="valor-icon">🤝</div><h3>COMPROMISO</h3><p>Trabajamos de manera cercana con cada cliente</p></div>
+      <div class="valor-card reveal"><div class="valor-icon">✓</div><h3>RESPONSABILIDAD</h3><p>Cumplimos con los compromisos y entregas acordadas</p></div>
+      <div class="valor-card reveal"><div class="valor-icon">⭐</div><h3>PROFESIONALISMO</h3><p>Ofrecemos trabajos organizados, claros y de calidad</p></div>
     </div>
   </div>
 </section>
@@ -302,13 +382,13 @@ section{padding:96px 0;}
 <!-- SERVICIOS -->
 <section id="servicios">
   <div class="container">
-    <div class="section-header">
+    <div class="section-header reveal">
       <span class="eyebrow">SERVICIOS</span>
       <h2>Nuestros servicios.</h2>
       <p class="sub">Soluciones creativas y tecnológicas que se adaptan a lo que tu marca necesita para crecer.</p>
     </div>
 
-    <div class="servicios-layout">
+    <div class="servicios-layout reveal">
       <ul class="servicios-tabs" id="servicios-tabs">
         <li><button class="active" data-target="panel-dg">🖌️ Diseño gráfico</button></li>
         <li><button data-target="panel-dw">💻 Diseño web</button></li>
@@ -319,7 +399,9 @@ section{padding:96px 0;}
 
       <div class="servicios-panels">
         <div class="servicio-panel active" id="panel-dg">
-          <div class="servicio-visual">Ejemplos de Diseño gráfico<br><small>Espacio editable</small></div>
+          <div class="servicio-visual">
+            <img src="servicio-diseno-grafico.png" alt="Identidad de marca y piezas de diseño gráfico de Nova Digital: papelería, tarjetas, packaging y branding en pantalla">
+          </div>
           <div>
             <div class="servicio-icon">🖌️</div>
             <h3>Diseño gráfico</h3>
@@ -328,7 +410,9 @@ section{padding:96px 0;}
           </div>
         </div>
         <div class="servicio-panel" id="panel-dw">
-          <div class="servicio-visual">Ejemplos de Diseño web<br><small>Espacio editable</small></div>
+          <div class="servicio-visual">
+            <img src="servicio-diseno-web.png" alt="Mockup de sitio web de Nova Digital mostrando servicios, portafolio y tecnología en pantalla de computador">
+          </div>
           <div>
             <div class="servicio-icon">💻</div>
             <h3>Diseño web</h3>
@@ -337,7 +421,9 @@ section{padding:96px 0;}
           </div>
         </div>
         <div class="servicio-panel" id="panel-cd">
-          <div class="servicio-visual">Ejemplos de Contenido digital<br><small>Espacio editable</small></div>
+          <div class="servicio-visual">
+            <img src="servicio-contenido-digital.png" alt="Piezas de contenido digital y gráfico colorido creado por Nova Digital">
+          </div>
           <div>
             <div class="servicio-icon">📱</div>
             <h3>Contenido digital</h3>
@@ -346,7 +432,9 @@ section{padding:96px 0;}
           </div>
         </div>
         <div class="servicio-panel" id="panel-md">
-          <div class="servicio-visual">Ejemplos de Marketing digital<br><small>Espacio editable</small></div>
+          <div class="servicio-visual">
+            <img src="servicio-marketing-digital.png" alt="Dashboard de KPIs, estrategia de campaña y métricas de redes sociales de marketing digital">
+          </div>
           <div>
             <div class="servicio-icon">📈</div>
             <h3>Marketing digital</h3>
@@ -414,7 +502,7 @@ section{padding:96px 0;}
 <!-- PORTAFOLIO -->
 <section class="portafolio" id="portafolio">
   <div class="container">
-    <div class="section-header">
+    <div class="section-header reveal">
       <span class="eyebrow">PORTAFOLIO</span>
       <h2>Nuestro portafolio.</h2>
       <p class="sub">Una selección de los trabajos que hemos realizado para marcas y emprendimientos.</p>
@@ -431,15 +519,15 @@ section{padding:96px 0;}
     </div>
 
     <div class="portafolio-grid" id="portafolio-grid">
-      <div class="p-card" data-cat="branding diseno-grafico"><img src="bella-dona-logo.jpg" alt="Logo Bella Dona"><div class="p-caption"><h4>Bella Dona · Logo</h4><span>Branding</span></div></div>
-      <div class="p-card" data-cat="redes-sociales contenido-digital"><img src="bella-dona-redes-sociales.jpg" alt="Redes Sociales Bella Dona"><div class="p-caption"><h4>Bella Dona · Redes Sociales</h4><span>Contenido digital</span></div></div>
-      <div class="p-card" data-cat="branding"><img src="bella-dona-packaging.jpg" alt="Packaging Bella Dona"><div class="p-caption"><h4>Bella Dona · Packaging</h4><span>Branding</span></div></div>
-      <div class="p-card" data-cat="diseno-grafico branding"><img src="bella-dona-papeleria.jpg" alt="Papelería Bella Dona"><div class="p-caption"><h4>Bella Dona · Papelería</h4><span>Diseño gráfico</span></div></div>
-      <div class="p-card" data-cat="diseno-grafico"><img src="lashdiseñografico.jpg" alt="Lash Shop"><div class="p-caption"><h4>Lash Shop · Diseño gráfico</h4><span>Diseño gráfico</span></div></div>
-      <div class="p-card" data-cat="diseno-web"><img src="lashdiseñoweb2.jpg" alt="Lash Shop web"><div class="p-caption"><h4>Lash Shop · Sitio web</h4><span>Diseño web</span></div></div>
-      <div class="p-card" data-cat="contenido-digital"><img src="lashcontenidodigital.jpg" alt="Lash Shop contenido"><div class="p-caption"><h4>Lash Shop · Contenido digital</h4><span>Contenido digital</span></div></div>
-      <div class="p-card" data-cat="automatizacion"><img src="bellaautomatizacion1.jpg" alt="Automatización Bella Dona"><div class="p-caption"><h4>Bella Dona · Automatización</h4><span>Automatización</span></div></div>
-      <div class="p-card next-project"><h4>Tu próximo proyecto aquí</h4><p>Cuéntanos tu idea y creemos juntos tu próxima experiencia digital.</p></div>
+      <div class="p-card reveal" data-cat="branding diseno-grafico"><img src="bella-dona-logo.jpg" alt="Logo Bella Dona"><div class="p-caption"><h4>Bella Dona · Logo</h4><span>Branding</span></div></div>
+      <div class="p-card reveal" data-cat="redes-sociales contenido-digital"><img src="bella-dona-redes-sociales.jpg" alt="Redes Sociales Bella Dona"><div class="p-caption"><h4>Bella Dona · Redes Sociales</h4><span>Contenido digital</span></div></div>
+      <div class="p-card reveal" data-cat="branding"><img src="bella-dona-packaging.jpg" alt="Packaging Bella Dona"><div class="p-caption"><h4>Bella Dona · Packaging</h4><span>Branding</span></div></div>
+      <div class="p-card reveal" data-cat="diseno-grafico branding"><img src="bella-dona-papeleria.jpg" alt="Papelería Bella Dona"><div class="p-caption"><h4>Bella Dona · Papelería</h4><span>Diseño gráfico</span></div></div>
+      <div class="p-card reveal" data-cat="diseno-grafico"><img src="lashdiseñografico.jpg" alt="Lash Shop"><div class="p-caption"><h4>Lash Shop · Diseño gráfico</h4><span>Diseño gráfico</span></div></div>
+      <div class="p-card reveal" data-cat="diseno-web"><img src="lashdiseñoweb2.jpg" alt="Lash Shop web"><div class="p-caption"><h4>Lash Shop · Sitio web</h4><span>Diseño web</span></div></div>
+      <div class="p-card reveal" data-cat="contenido-digital"><img src="lashcontenidodigital.jpg" alt="Lash Shop contenido"><div class="p-caption"><h4>Lash Shop · Contenido digital</h4><span>Contenido digital</span></div></div>
+      <div class="p-card reveal" data-cat="automatizacion"><img src="bellaautomatizacion1.jpg" alt="Automatización Bella Dona"><div class="p-caption"><h4>Bella Dona · Automatización</h4><span>Automatización</span></div></div>
+      <div class="p-card next-project reveal"><h4>Tu próximo proyecto aquí</h4><p>Cuéntanos tu idea y creemos juntos tu próxima experiencia digital.</p></div>
     </div>
   </div>
 </section>
@@ -451,12 +539,12 @@ section{padding:96px 0;}
       <img src="bella-dona-logo.jpg" alt="Bella Dona">
       <img src="lashdiseñografico.jpg" alt="Lash Shop">
     </div>
-    <div class="section-header center">
+    <div class="section-header center reveal">
       <span class="eyebrow">CLIENTES</span>
       <h2>Lo que dicen nuestros clientes</h2>
       <p class="sub">Muy pronto compartiremos aquí las experiencias de quienes ya trabajan con nosotros.</p>
     </div>
-    <div class="testimonio-placeholder">
+    <div class="testimonio-placeholder reveal">
       <div class="stars">★★★★★</div>
       <p>Espacio reservado para el testimonio de un cliente. Aquí aparecerá su experiencia trabajando con Nova Digital.</p>
     </div>
@@ -466,14 +554,14 @@ section{padding:96px 0;}
 <!-- CONTACTO -->
 <section class="valores" id="contacto">
   <div class="container">
-    <div class="section-header">
+    <div class="section-header reveal">
       <span class="eyebrow">CONTACTO</span>
       <h2>Vamos a trabajar juntos</h2>
       <p class="sub">Cuéntanos sobre tu proyecto y descubre cómo podemos ayudarte a alcanzar tus objetivos digitales.</p>
     </div>
 
     <div class="contacto-layout">
-      <form id="contacto-form">
+      <form id="contacto-form" class="reveal">
         <div class="form-row">
           <div class="form-group"><label for="f-nombre">Nombre *</label><input id="f-nombre" type="text" name="nombre" required></div>
           <div class="form-group"><label for="f-email">Correo electrónico *</label><input id="f-email" type="email" name="email" required></div>
@@ -501,7 +589,7 @@ section{padding:96px 0;}
         <p class="form-feedback" id="form-feedback">Completa al menos tu nombre, correo y mensaje para continuar.</p>
       </form>
 
-      <div class="contacto-side">
+      <div class="contacto-side reveal">
         <h3>También puedes encontrarnos en</h3>
         <div class="contact-row">
           <div class="ci">💬</div>
@@ -569,6 +657,49 @@ section{padding:96px 0;}
 </footer>
 
 <script>
+// Fondo dinámico animado: genera el campo de estrellas ★ (logo Nova)
+(function(){
+  const field = document.getElementById('starField');
+  if(!field) return;
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const total = prefersReduced ? 0 : (window.innerWidth < 700 ? 26 : 46);
+  for(let i = 0; i < total; i++){
+    const star = document.createElement('span');
+    star.className = 'star';
+    star.textContent = '★';
+    const size = 8 + Math.random() * 18;
+    const twinkleDur = 4 + Math.random() * 5;
+    const driftDur = 10 + Math.random() * 14;
+    const delay = Math.random() * 8;
+    star.style.left = Math.random() * 100 + '%';
+    star.style.top = Math.random() * 100 + '%';
+    star.style.fontSize = size + 'px';
+    star.style.setProperty('--star-peak', (0.25 + Math.random() * 0.45).toFixed(2));
+    star.style.animationDuration = twinkleDur + 's, ' + driftDur + 's';
+    star.style.animationDelay = delay + 's, ' + delay + 's';
+    field.appendChild(star);
+  }
+})();
+
+// Revelado suave de secciones al hacer scroll
+(function(){
+  const items = document.querySelectorAll('.reveal');
+  if(!items.length) return;
+  if(!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    items.forEach(el => el.classList.add('is-visible'));
+    return;
+  }
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {threshold:.15, rootMargin:'0px 0px -60px 0px'});
+  items.forEach(el => observer.observe(el));
+})();
+
 // Menú móvil
 (function(){
   const hamburger = document.getElementById('hamburger');
