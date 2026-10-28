@@ -39,7 +39,7 @@ img{max-width:100%;display:block;}
 .container{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
 .eyebrow{display:inline-block;font-size:.8rem;letter-spacing:2px;color:var(--sky);font-weight:700;margin-bottom:14px;}
 section{padding:96px 0;}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 26px;border-radius:999px;font-weight:700;text-decoration:none;cursor:pointer;border:none;font-family:'Open Sans',sans-serif;font-size:.95rem;transition:transform .2s ease, box-shadow .2s ease;}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 26px;border-radius:999px;font-weight:700;text-decoration:none;cursor:pointer;border:none;font-family:'Open Sans',sans-serif;font-size:.95rem;transition:all .26s ease;}
 .btn-primary{background:var(--navy);color:#fff;}
 .btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(16,40,77,.28);}
 .btn-outline{background:transparent;color:var(--navy);border:2px solid var(--navy);}
@@ -119,11 +119,11 @@ section{padding:96px 0;}
 .servicios-layout{display:grid;grid-template-columns:.9fr 1.6fr;gap:0;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;}
 .servicios-tabs{list-style:none;margin:0;padding:0;background:var(--bg-soft);}
 .servicios-tabs li{border-bottom:1px solid var(--line);}
-.servicios-tabs button{width:100%;text-align:left;padding:20px 22px;background:none;border:none;font-family:'Open Sans',sans-serif;font-weight:700;font-size:.96rem;color:var(--ink);cursor:pointer;display:flex;align-items:center;gap:10px;}
+.servicios-tabs button{width:100%;text-align:left;padding:20px 22px;background:none;border:none;font-family:'Open Sans',sans-serif;font-weight:700;font-size:.96rem;color:var(--ink);cursor:pointer;display:block;}
 .servicios-tabs button.active{background:#fff;color:var(--navy);box-shadow:inset 4px 0 0 var(--navy);}
 .servicio-panel{display:none;padding:44px 40px;grid-template-columns:1fr 1fr;gap:36px;align-items:center;}
 .servicio-panel.active{display:grid;}
-.servicio-visual{background:var(--bg-soft);border-radius:var(--radius);height:220px;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--muted);font-size:.85rem;padding:14px;overflow:hidden;position:relative;}
+.servicio-visual{background:var(--bg-soft);border-radius:var(--radius);height:220px;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--muted);font-size:.85rem;padding:0;overflow:hidden;}
 .servicio-visual img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease;}
 .servicio-panel:hover .servicio-visual img{transform:scale(1.05);}
 .servicio-icon{width:46px;height:46px;border-radius:12px;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.2rem;margin-bottom:16px;}
@@ -136,8 +136,12 @@ section{padding:96px 0;}
 
 /* PORTAFOLIO */
 .portafolio{background:var(--bg-soft);}
+.portfolio-pricing{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:18px;margin:0 0 34px;}
+.price-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:20px 18px;text-align:center;box-shadow:0 6px 18px rgba(16,40,77,.04);}
+.price-label{display:block;color:var(--muted);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px;font-weight:700;}
+.price-amount{display:block;color:var(--navy);font-size:1.7rem;font-weight:700;font-family:'Garet',sans-serif;line-height:1.2;}
 .filter-bar{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:40px;}
-.filter-btn{padding:9px 18px;border-radius:999px;border:1px solid var(--line);background:#fff;font-family:'Open Sans',sans-serif;font-weight:600;font-size:.85rem;cursor:pointer;color:var(--ink);transition:transform .15s ease;}
+.filter-btn{padding:9px 18px;border-radius:999px;border:1px solid var(--line);background:#fff;font-family:'Open Sans',sans-serif;font-weight:600;font-size:.85rem;cursor:pointer;color:var(--ink);transition:all .2s ease;}
 .filter-btn.active{background:var(--navy);color:#fff;border-color:var(--navy);}
 .filter-btn:hover{transform:translateY(-1px);}
 .portafolio-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px;}
@@ -165,7 +169,7 @@ section{padding:96px 0;}
 .contacto-layout{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;}
 .form-group{margin-bottom:16px;}
 .form-group label{display:block;font-size:.85rem;font-weight:600;margin-bottom:6px;color:var(--ink);}
-.form-group input,.form-group select,.form-group textarea{width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:10px;font-family:'Open Sans',sans-serif;font-size:.95rem;background:#fff;transition:border-color .2s ease,box-shadow .2s ease;}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:10px;font-family:'Open Sans',sans-serif;font-size:.95rem;background:#fff;}
 .form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:var(--sky);box-shadow:0 0 0 4px rgba(125,159,192,.18);}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
 .form-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px;}
@@ -191,7 +195,7 @@ section{padding:96px 0;}
 .footer a{color:#aeb9cc;text-decoration:none;font-size:.9rem;}
 .footer a:hover{color:#fff;}
 .footer-socials{display:flex;gap:10px;}
-.footer .social-icon{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;font-size:.95rem;transition:background .2s ease,transform .2s ease;}
+.footer .social-icon{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;font-size:.95rem;transition:all .2s ease;}
 .footer .social-icon:hover{background:var(--sky);transform:translateY(-2px);}
 .footer-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;padding-top:22px;font-size:.82rem;color:#8ea0bc;}
 .footer-bottom a{color:#8ea0bc;margin-left:16px;text-decoration:none;}
@@ -369,19 +373,19 @@ section{padding:96px 0;}
     <div class="section-header reveal">
       <span class="eyebrow">CONÓCENOS</span>
       <h2>Una empresa creativa y tecnológica.</h2>
-      <p class="sub">Nova Digital es una empresa creativa y tecnológica que desarrolla soluciones digitales para marcas y emprendimientos. Combinamos diseño, estrategia y automatización para crear experiencias que conecten con las personas y ayuden a nuestros clientes a alcanzar sus objetivos.</p>
+      <p class="sub">Nova Digital es una empresa creativa y tecnológica que desarrolla soluciones digitales para marcas y emprendimientos. Combinamos diseño, estrategia y automatización para crear experiencias memorables.</p>
     </div>
 
     <div class="conocenos-grid">
       <div class="mv-card reveal">
         <div class="mv-icon">★</div>
         <h3>MISIÓN</h3>
-        <p>Crear soluciones digitales innovadoras que combinen creatividad, diseño y tecnología, ayudando a nuestros clientes a fortalecer su presencia digital, conectar con sus públicos y alcanzar sus objetivos de manera estratégica y eficiente.</p>
+        <p>Crear soluciones digitales innovadoras que combinen creatividad, diseño y tecnología, ayudando a nuestros clientes a fortalecer su presencia digital, conectar con sus públicos y alcanzar resultados concretos.</p>
       </div>
       <div class="mv-card reveal">
         <div class="mv-icon">✦</div>
         <h3>VISIÓN</h3>
-        <p>Ser una empresa reconocida por transformar ideas en soluciones digitales de alto impacto, destacándonos por nuestra creatividad, motivación, calidad y capacidad de adaptación a las nuevas tendencias tecnológicas.</p>
+        <p>Ser una empresa reconocida por transformar ideas en soluciones digitales de alto impacto, destacándonos por nuestra creatividad, motivación, calidad y capacidad de adaptación a las nuevas tendencias del mercado.</p>
       </div>
     </div>
 
@@ -478,13 +482,13 @@ section{padding:96px 0;}
         </div>
         <div class="servicio-panel" id="panel-ad">
           <div class="servicio-visual">
-            <img src="servicio-automatizacion-digital.png">
+            <img src="servicio-automatizacion-digital.png" alt="Automatización digital y procesos de negocio con herramientas digitales">
+          </div>
           <div>
             <div class="servicio-icon">⚙️</div>
             <h3>Automatización digital</h3>
             <p>Soluciones automatizadas que optimizan tus procesos, ahorran tiempo y mejoran la experiencia de tus clientes.</p>
             <button class="btn btn-primary open-servicio-modal" data-modal="ad-modal-overlay">Conocer más →</button>
-          </div>
           </div>
         </div>
       </div>
@@ -542,6 +546,29 @@ section{padding:96px 0;}
       <span class="eyebrow">PORTAFOLIO</span>
       <h2>Nuestro portafolio.</h2>
       <p class="sub">Una selección de los trabajos que hemos realizado para marcas y emprendimientos.</p>
+    </div>
+
+    <div class="portfolio-pricing reveal">
+      <div class="price-card">
+        <span class="price-label">Diseño gráfico</span>
+        <span class="price-amount">$50.000</span>
+      </div>
+      <div class="price-card">
+        <span class="price-label">Páginas web</span>
+        <span class="price-amount">$800.000</span>
+      </div>
+      <div class="price-card">
+        <span class="price-label">Contenido digital</span>
+        <span class="price-amount">$25.000</span>
+      </div>
+      <div class="price-card">
+        <span class="price-label">Marketing digital</span>
+        <span class="price-amount">$250.000</span>
+      </div>
+      <div class="price-card">
+        <span class="price-label">Automatización</span>
+        <span class="price-amount">$200.000</span>
+      </div>
     </div>
 
     <div class="filter-bar" id="filter-bar">
